@@ -22,7 +22,13 @@ jobs:
         uses: voidzero-dev/setup-vp@v1
         with:
           node-version: '24'
-          cache: true
+          cache: false
+
+      - name: Clean pnpm store
+        run: pnpm store prune
+
+      - name: Install dependencies
+        run: pnpm install --update-checksums
 
       - name: Build RGBirdflop Package
         run: vp run build.pkg
