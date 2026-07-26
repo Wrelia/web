@@ -28,7 +28,7 @@ jobs:
       - name: Build RGBirdflop
         run: vp run build.pkg
 
-      # KONTROL ADIMI (Dosyaların nerede olduğunu loga yazdırır):
+      # KONTROL ADIMI (Klasörleri loga yazdırır)
       - name: Check output directory
         run: ls -la && ls -la packages/rgbirdflop/
 
