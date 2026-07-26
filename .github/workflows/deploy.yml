@@ -23,12 +23,15 @@ jobs:
         uses: voidzero-dev/setup-vp@v1
         with:
           node-version: '24'
-          cache: true
+          cache: false
+
+      - name: Install dependencies
+        run: vp install -- --update-checksums
 
       - name: Build RGBirdflop
         run: vp run build.pkg
 
-      # KONTROL ADIMI (Klasörleri loga yazdırır)
+      # KONTROL ADIMI (Klasörlerin oluşup oluşmadığını gösterir)
       - name: Check output directory
         run: ls -la && ls -la packages/rgbirdflop/
 
@@ -38,7 +41,7 @@ jobs:
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: packages/rgbirdflop/dist
 
   deploy:
     needs: build
