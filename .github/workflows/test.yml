@@ -24,9 +24,6 @@ jobs:
           node-version: '24'
           cache: false
 
-      - name: Clean pnpm store
-        run: pnpm store prune
-
       - name: Install dependencies
         run: pnpm install --update-checksums
 
